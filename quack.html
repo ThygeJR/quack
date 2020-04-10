@@ -3,27 +3,56 @@
 <head>
     <title></title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var options = {
+              chart: {
+                type: 'line'
+            },
+            series: [{
+                name: 'sales',
+                data: [25000,25632,25392,28132,29821,30148,31578,33754,49736]
+            }],
+            xaxis: {
+                categories: [12,13,14,15,16,17,18, 19,20]
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            dropShadow: {
+              enabled: true,
+              top: 0,
+              left: 0,
+              blur: 3,
+              opacity: 0.5
+          }
+      }
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+      chart.render();
+  }
+</script>
 </head>
-<body>
+<body>e
   <div class="wrapper">
     <div class="row-3 clearfix">
       <div class="col-1-3">
-        <h2>Important metric #1</h2>
+        <h2>Start</h2>
         <div class="big-number">25000</div>
-      </div>
-      <div class="col-1-3">
-        <h2>Important metric #2</h2>
+    </div>
+    <div class="col-1-3">
+        <h2>YTD Return</h2>
         <div class="big-number">25%</div></div>
-      <div class="col-1-3">
-        <h2>Important metric #3</h2>
-        <div class="big-number">96203</div></div>
-    </div>
-    <div class="row clearfix">
-      <div class="col ">
-        <h2>Graph</h2>
-        Big old graph
-      </div>
-    </div>
-  </div><!-- /.wrapper -->
+        <div class="col-1-3">
+            <h2>Balance</h2>
+            <div class="big-number">49736</div></div>
+        </div>
+        <div class="row clearfix">
+          <div class="col ">
+            <div id="chart"></div>
+        </div>
+    </div><!-- /.wrapper -->
 </body>
 </html>
