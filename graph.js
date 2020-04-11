@@ -28,7 +28,7 @@ window.onload = function(){
 }
 
 fetch('testData.csv').then(response => {
-  return response.json()
+  return response.text()
 }).then(users => {
   console.log(users);
 });
