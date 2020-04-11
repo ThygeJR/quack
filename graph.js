@@ -27,19 +27,18 @@ window.onload = function(){
   chart.render();
 }
 
-fetch('testData.csv').then(response => {
-  return response.text()
-}).then(testData => {
-  console.log(testData);
-});
-
-$.get( "testData.csv", function( data ) { 
-    console.log('data1' + data1);
-});
-
 $.ajax({
-    type: "GET",
-    url: "testData.csv",
-    dataType: "text",
-    success: function(data2) {console.log('data2' + data2);}
+  type: "GET",
+  url: "sample.csv",
+  dataType: "text",
+  success: function(csv) {loadData(csv);}
 });
+
+function loadData() {
+  var data = $.csv.toArrays(csv, {
+    onParseValue: $.csv.hooks.castToScalar
+  });
+  console.log(data);
+  $('#result').empty();
+  $('#result').html(JSON.stringify(data, null, 2));
+}
