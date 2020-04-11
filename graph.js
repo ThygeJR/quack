@@ -35,7 +35,7 @@ $.ajax({
 });
 
 function loadData() {
-  var data = $.csv.toArrays(csv, {
+  var data = csv.toArrays(csv, {
     onParseValue: $.csv.hooks.castToScalar
   });
   console.log(data);
