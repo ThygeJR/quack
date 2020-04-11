@@ -29,6 +29,17 @@ window.onload = function(){
 
 fetch('testData.csv').then(response => {
   return response.text()
-}).then(users => {
-  console.log(users);
+}).then(testData => {
+  console.log(testData);
+});
+
+$.get( "testData.csv", function( data ) { 
+    console.log('data1' + data1);
+});
+
+$.ajax({
+    type: "GET",
+    url: "testData.csv",
+    dataType: "text",
+    success: function(data2) {console.log('data2' + data2);}
 });
